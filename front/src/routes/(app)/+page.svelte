@@ -4,8 +4,9 @@
     $: data, setData();
     function setData() {
         landList = data.land_list;
-        console.log(landList);
     }
+
+    
 </script>
 
 <div class="grid grid-cols-2 md:grid-cols-3 gap-2">

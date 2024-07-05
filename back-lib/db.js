@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS config(
 
 INSERT INTO config (cf_base) VALUES ('base');
 
+ALTER TABLE land ADD COLUMN ld_location VARCHAR(50) AFTER ld_name;
 
 land_view
 free_board

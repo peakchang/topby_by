@@ -7,12 +7,22 @@ const koreaTime = moment.tz('Asia/Seoul');
 const apiRouter = express.Router();
 
 
-apiRouter.use('/load_land_list', async (req, res, next) => {
+apiRouter.post('/load_land_list', async (req, res, next) => {
     let status = true;
     let land_list = [];
 
+    const body = req.body;
+    const getLocation = body.getLocation;
+    let addQuery = ""
+    console.log(body);
+
+    if(getLocation && getLocation != '전체'){
+        addQuery = `WHERE ld_location = '${getLocation}'`
+    }
+
     try {
-        const loadLandListQuery = "SELECT * FROM land";
+        const loadLandListQuery = `SELECT * FROM land ${addQuery}`;
+        console.log(loadLandListQuery);
         const loadLandList = await sql_con.promise().query(loadLandListQuery);
         land_list = loadLandList[0];
     } catch (error) {
