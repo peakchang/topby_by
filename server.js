@@ -28,9 +28,9 @@ let originLink;
 
 
 if (process.env.NODE_ENV === 'production') {
-    const whiteListStr = process.env.SITE_LINK
-    const whiteListArr = whiteListStr.split(',');
-    originLink = [/\.adpeak\.kr$/, 'https://adpeak.kr']
+    // const whiteListStr = process.env.SITE_LINK
+    // const whiteListArr = whiteListStr.split(',');
+    // originLink = [/\.by.adpeak\.kr$/, 'https://by.adpeak.kr']
 } else {
     originLink = true;
 }
